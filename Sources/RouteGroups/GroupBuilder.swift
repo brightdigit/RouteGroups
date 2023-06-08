@@ -7,9 +7,9 @@ public struct GroupBuilder<RouteGroupKeyType: Hashable> {
     self.groups = groups
   }
 
-  public func register<RouteGroupCollectionType: RouteGroupCollection>(
-    collection: RouteGroupCollectionType
-  ) throws where RouteGroupCollectionType.RouteGroupKeyType == RouteGroupKeyType {
+  public func register<CollectionType: RouteGroupCollection>(
+    collection: CollectionType
+  ) throws where CollectionType.RouteGroupKeyType == RouteGroupKeyType {
     for (type, group) in collection.routeGroups {
       if let builder = groups[type] {
         try group(builder)
