@@ -14,7 +14,12 @@ let swiftSettings: [SwiftSetting] = [
 
 let package = Package(
   name: "RouteGroups",
-  platforms: [.macOS(.v10_15)],
+  platforms: [
+              .macOS(.v10_15),
+        .iOS(.v13),
+        .watchOS(.v6),
+        .tvOS(.v13)
+  ],
   products: [
     .library(
       name: "RouteGroups",
